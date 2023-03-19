@@ -92,6 +92,11 @@ public class Plants {
         return watering;
     }
 
+    public String getWateringInfo() {
+        LocalDate nextWatering = getWatering().plusDays(getFrequencyOfWatering());
+        return  getName() + ": naposled zalita " + getWatering() + ", další zálivka: " + nextWatering;
+    }
+
 }
 
     ///endregion
