@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 import static java.time.LocalTime.now;
 
-public class Plants {
+public class Plants  implements Comparable<Plants> {
 
     ///region Atributy
     private String name;
@@ -97,6 +97,10 @@ public class Plants {
         return  getName() + ": naposled zalita " + getWatering() + ", další zálivka: " + nextWatering;
     }
 
+    @Override
+    public int compareTo(Plants second) {
+        return this.name.compareTo(second.name);
+    }
 }
 
     ///endregion
