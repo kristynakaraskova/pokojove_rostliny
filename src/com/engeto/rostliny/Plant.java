@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 import static java.time.LocalTime.now;
 
-public class Plants  implements Comparable<Plants> {
+public class Plant implements Comparable<Plant> {
 
     ///region Atributy
     private String name;
@@ -17,15 +17,15 @@ public class Plants  implements Comparable<Plants> {
 
     ///region Konstruktory
 
-    public Plants(String name, String notes, LocalDate planted, LocalDate watering, int frequencyOfWatering) {
+    public Plant(String name, String notes, LocalDate planted, LocalDate watering, int frequencyOfWatering) throws PlantException {
         this.name = name;
         this.notes = notes;
         this.planted = planted;
-        this.watering = watering;
-        this.frequencyOfWatering = frequencyOfWatering;
+        setWatering(watering);
+        setFrequencyOfWatering(frequencyOfWatering);
     }
 
-    public Plants(String name, LocalDate planted, int frequencyOfWatering) {
+    public Plant(String name, LocalDate planted, int frequencyOfWatering) {
         this.name = name;
         this.notes = null;
         this.planted = planted;
@@ -33,7 +33,7 @@ public class Plants  implements Comparable<Plants> {
         this.frequencyOfWatering = frequencyOfWatering;
     }
 
-    public Plants(String name) {
+    public Plant(String name) {
         this.name = name;
         this.notes = null;
         this.planted = LocalDate.now();
@@ -98,7 +98,7 @@ public class Plants  implements Comparable<Plants> {
     }
 
     @Override
-    public int compareTo(Plants second) {
+    public int compareTo(Plant second) {
         return this.name.compareTo(second.name);
     }
 }
